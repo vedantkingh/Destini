@@ -42,19 +42,50 @@ class StoryBrain {
   ];
 
   String getStory(){
-    return _storyData[0].storyTitle;
+    return _storyData[storyNumber].storyTitle;
   }
 
   String getChoice1(){
-    return _storyData[0].choice1;
+    return _storyData[storyNumber].choice1;
   }
 
   String getChoice2(){
-    return _storyData[0].choice2;
+    return _storyData[storyNumber].choice2;
   }
 
   void nextStory(int choiceNumber){
+    switch(storyNumber){
+      case 0:
+        if(choiceNumber == 1){
+          storyNumber = 2;
+        }else{
+          storyNumber = 1;
+        }
+        break;
+      case 1:
+        if(choiceNumber == 1){
+          storyNumber = 2;
+        }else{
+          storyNumber = 3;
+        }
+        break;
+      case 2:
+        if(choiceNumber == 1){
+          storyNumber = 5;
+        }else{
+          storyNumber = 4;
+        }
+        break;
+      case 3:
+      case 4:
+      case 5:
+        restart();
+        break;
+    }
+  }
 
+  void restart(){
+    storyNumber = 0;
   }
 
 }
