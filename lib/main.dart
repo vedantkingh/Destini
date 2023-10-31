@@ -51,7 +51,9 @@ class _StoryPageState extends State<StoryPage> {
                 child: TextButton(
                   onPressed: () {
                     //Choice 1 made by user.
-                    storyBrain.nextStory(1);
+                    setState(() {
+                      storyBrain.nextStory(1);
+                    });
                   },
                   style: ButtonStyle(
                     foregroundColor: MaterialStateProperty.all(Colors.white),
